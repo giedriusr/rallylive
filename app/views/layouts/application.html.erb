@@ -19,6 +19,9 @@
       </div>
     </nav>
   </header>
+  <% if user_signed_in? %>
+    <div align="right" class="alert"><%= current_user.email %> <%= link_to 'Sign out', sign_out_path, :method => :destroy %></div>
+  <% end %>
 
   <div id="main" role="main">
     <div class="container">
