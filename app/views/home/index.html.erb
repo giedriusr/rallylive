@@ -1,1 +1,25 @@
-Čia greitai bus nauja aplikacija stebėti ralio rezultatus!
+<div class="">
+  <p align="center"><%= image_tag "/#{@rally.id}_ralis.png", :width => '200px' %></p><br>
+  Ralis: <strong><%= @rally.name %></strong><br>
+  Danga: <%= @rally.surface %><br>
+  Prasideda: <%= @rally.starts_at %>
+</div>
+
+<table class="table">
+  <tr>
+    <th>#</th>
+    <th>S</th>
+    <th>Ekipažas</th>
+    <th>Kl</th>
+    <th>Laikas</th>
+    <th>Vid. greitis</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>V. Švedas<br>Ž. Sakalauskas<br>Mitsubishi Lancer EVO X</td>
+    <td>2</td>
+    <td>41:09.8</td>
+    <td>115.66 km/h</td>
+  </tr>
+</table>
