@@ -11,6 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20130605191404) do
+
+  create_table "rallies", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "surface"
+    t.string   "starts_at"
+    t.string   "logo"
+    t.boolean  "is_current",  default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rallies", ["is_current"], name: "index_rallies_on_is_current", using: :btree
+
+  create_table "rally_event_stage_times", force: true do |t|
+    t.integer  "rally_id"
+    t.integer  "stage_id"
+    t.integer  "participant_id"
+    t.integer  "stage_number"
+    t.float    "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rally_event_stage_times", ["participant_id"], name: "index_rally_event_stage_times_on_participant_id", using: :btree
+  add_index "rally_event_stage_times", ["rally_id"], name: "index_rally_event_stage_times_on_rally_id", using: :btree
+  add_index "rally_event_stage_times", ["stage_id"], name: "index_rally_event_stage_times_on_stage_id", using: :btree
+  add_index "rally_event_stage_times", ["stage_number"], name: "index_rally_event_stage_times_on_stage_number", using: :btree
+
+  create_table "rally_participants", force: true do |t|
+    t.integer  "rally_id"
+    t.integer  "start_number"
+    t.string   "driver_name"
+    t.string   "co_driver_name"
+    t.string   "team_name"
+    t.string   "car_name"
+    t.string   "classification"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rally_participants", ["rally_id"], name: "index_rally_participants_on_rally_id", using: :btree
+
+  create_table "rally_stages", force: true do |t|
+    t.integer  "rally_id"
+    t.string   "name"
+    t.float    "length"
+    t.integer  "number"
+    t.string   "surface"
+    t.string   "starts_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rally_stages", ["rally_id"], name: "index_rally_stages_on_rally_id", using: :btree
 
 end
