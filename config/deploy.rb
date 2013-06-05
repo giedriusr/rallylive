@@ -5,7 +5,6 @@ set :deploy_via, :remote_cache
 
 set :shared_children, %w(
   public/uploads
-  public/assets
   tmp/cache
   tmp
 )
