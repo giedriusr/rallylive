@@ -10,7 +10,6 @@ gem 'thin'
 gem 'capistrano'
 gem 'rvm-capistrano'
 gem 'devise', '3.0.0.rc'
-# gem 'devise-async'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'faker'
@@ -39,7 +38,7 @@ end
 
 group :development do
   gem 'letter_opener'
-  gem 'rack-mini-profiler'
+  # gem 'rack-mini-profiler'
   gem 'brakeman'
   gem 'better_errors'
   gem 'binding_of_caller'
