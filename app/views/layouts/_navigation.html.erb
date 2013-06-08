@@ -4,6 +4,6 @@
   <li <%= sidebar_link(request.path_info, '') %>><%= link_to 'Starto tvarka', '#' %></li>
   <li <%= sidebar_link(request.path_info, about_us_path) %>><%= link_to 'Apie projektą', about_us_path %></li>
   <% if user_signed_in? %>
-    <li><%= link_to '- Administravimas', '' %></li>
+    <li><%= link_to 'Admin', '' %></li>
   <% end %>
 </ul>
