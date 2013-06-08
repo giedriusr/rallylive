@@ -12,7 +12,7 @@ class RalliesController < AdminController
   def create
     @rally = Rally.new
     if @rally.update_attributes(rally_params)
-      redirect_to rallies_path, :notice => 'Išsaugota!'
+      redirect_to rallies_path, :notice => 'Viskas gerai!'
     else
       render :new
     end
@@ -23,7 +23,7 @@ class RalliesController < AdminController
 
   def update
     if @rally.update_attributes(rally_params)
-      redirect_to edit_rally_path, :notice => 'Išsaugota!'
+      redirect_to edit_rally_path, :notice => 'Viskas gerai!'
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class RalliesController < AdminController
 
   def destroy
     @rally.destroy
-    redirect_to rallies_path, :notice => 'Ištrintas'
+    redirect_to rallies_path, :notice => 'Viskas gerai!'
   end
 
   def show
