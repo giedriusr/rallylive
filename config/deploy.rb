@@ -11,7 +11,7 @@ set :shared_children, %w(
 
 desc 'Deploy to production (production environment)'
 task :production do
-  set :application, 'rallylive'
+  set :application, 'raceonline.lt'
   set :environment, 'production'
   set :deploy_to, "/srv/www/#{application}"
   server 'rally', :app, :web, :db, :primary => true
