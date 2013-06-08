@@ -1,0 +1,43 @@
+<%= form_for @rally, :html => { :multipart => true } do |f| %>
+
+  <table class="table table-striped">
+    <tr>
+      <td width="200px"><%= f.label :name %></td>
+      <td><%= f.text_field :name, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :starts_at, 'Prasideda (data)' %></td>
+      <td><%= f.text_field :starts_at %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :is_current, 'Vyksta dabar?' %></td>
+      <td><%= f.check_box :is_current %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :surface, 'Danga' %></td>
+      <td><%= f.select :surface, options_for_select(['Žvyras', 'Asfaltas'], @rally.surface) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description, 'Aprašymas' %></td>
+      <td width="600px"><%= f.text_area :description, :rows => 8, :style => 'width:250px' %></td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Logotipas</strong><br>
+        <% if @rally.logo? %>
+          <%= image_tag @rally.logo.to_s, :class => 'thumbnail' %>
+        <% else %>
+          Nėra logotipo!
+        <% end %>
+        </td>
+      <td>
+        <%= f.file_field :logo %>
+        <%= f.label :remove_logo %><%= f.check_box :remove_logo %>
+      </td>
+    </tr>
+  </table>
+
+  <div class="actions">
+    <%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini' %>
+  </div>
+<% end %>

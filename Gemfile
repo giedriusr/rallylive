@@ -19,6 +19,8 @@ gem 'gravatar_image_tag'
 gem 'airbrake'
 gem 'newrelic_rpm'
 gem 'best_in_place'
+gem 'carrierwave'
+gem 'rmagick'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

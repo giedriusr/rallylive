@@ -49,7 +49,9 @@
 
     <div class="row-fluid marketing">
       <% if user_signed_in? %>
-        <div class="alert"><%= current_user.email %> | <%= link_to 'Atsijungti', sign_out_path, :method => :destroy %></div>
+        <div class="alert">
+        <%= link_to 'Ralio etapai', rallies_path %>
+        <%= current_user.email %> | <%= link_to 'Atsijungti', sign_out_path, :method => :destroy %></div>
       <% end %>
       <%= render 'layouts/messages' %>
       <%= yield %>

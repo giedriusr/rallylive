@@ -1,0 +1,24 @@
+<p><%= link_to 'Naujas ralis', new_rally_path, :class => 'btn btn-primary btn-mini' %></p>
+<table class="table table-striped">
+  <tr>
+    <th>Pavadinimas</th>
+    <th>Paviršius</th>
+    <th>Prasideda</th>
+    <th>Logo</th>
+    <th>Vyksta dabar?</th>
+    <th></th>
+  </tr>
+  <% @rallies.each do |rally| %>
+    <tr>
+      <td><%= link_to rally.name, rally_path(rally) %><br><%= rally.description %></td>
+      <td><%= rally.surface %></td>
+      <td><%= rally.starts_at %></td>
+      <td><%= image_tag rally.logo.to_s, :class => 'thumbnail' %></td>
+      <td><%= rally.is_current ? 'Taip' : 'Ne' %></td>
+      <td>
+      <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_path(rally), :class => 'btn btn-warning btn-mini' %>
+      <%= link_to raw('<span class="icon-remove"></span>'), rally_path(rally), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => 'Ar tikrai?' %>
+      </td>
+    </tr>
+  <% end %>
+</table>

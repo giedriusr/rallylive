@@ -64,6 +64,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.9.1)
@@ -195,6 +198,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    rmagick (2.13.2)
     rspec (2.13.0)
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
@@ -284,6 +288,7 @@ DEPENDENCIES
   brakeman
   capistrano
   capybara
+  carrierwave
   coffee-rails (~> 4.0.0)
   database_cleaner
   debugger
@@ -305,6 +310,7 @@ DEPENDENCIES
   rails (= 4.0.0.rc1)
   rails-i18n
   rb-fsevent (~> 0.9.3)
+  rmagick
   rspec-rails
   rvm-capistrano
   sass-rails (~> 4.0.0.rc1)

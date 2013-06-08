@@ -1,0 +1,6 @@
+<h1>Editing <%= @rally.name %></h1>
+
+<%= render 'form' %>
+
+<%= link_to "Back to #{@rally.name} rally", rally_path(@rally), :class => 'label' %> |
+<%= link_to 'Back to list of rallies', rallies_path, :class => 'label' %>
