@@ -11,4 +11,5 @@ Rallylive::Application.routes.draw do
   end
   root 'home#index'
   get '/apie_mus', to: 'home#about_us', as: 'about_us'
+  get '/dalyviu_sarasas', to: 'home#participants', as: 'participants'
 end
