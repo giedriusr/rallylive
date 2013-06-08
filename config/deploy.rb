@@ -2,6 +2,9 @@ set :repository,  "git@github.com:giedriusr/rallylive.git"
 set :scm, :git
 set :user, 'root'
 set :deploy_via, :remote_cache
+set :default_environment, {
+  'LANG' => 'en_US.UTF-8'
+}
 
 set :shared_children, %w(
   public/uploads
