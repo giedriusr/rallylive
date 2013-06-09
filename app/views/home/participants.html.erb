@@ -11,7 +11,7 @@
   <% @participants.each do |participant| %>
     <tr>
       <td><%= participant.start_number %>.</td>
-      <td><%= participant.driver_name %><br><%= participant.co_driver_name %><br><%= participant.team_name %></td>
+      <td><%= participant.driver_name %><br><%= participant.co_driver_name %><br><u><%= participant.team_name %></u></td>
       <td><%= participant.car_name %></td>
       <td><%= participant.classification %></td>
       <td><%= participant.country_code %></td>
