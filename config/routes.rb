@@ -12,6 +12,8 @@ Rallylive::Application.routes.draw do
   root 'home#index'
   get '/apie_mus', to: 'home#about_us', as: 'about_us'
   get '/dalyviu_sarasas', to: 'home#participants', as: 'participants'
+  get '/starto_tvarka', to: 'home#start_order', as: 'start_order'
+  get '/greicio_ruozai', to: 'home#special_stages', as: 'special_stages'
 
   resources :rallies do
     resources :participants

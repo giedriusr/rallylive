@@ -10,7 +10,7 @@
   </tr>
   <% @rallies.each do |rally| %>
     <tr>
-      <td><%= link_to rally.name, rally_path(rally) %><br><%= rally.description %></td>
+      <td><%= link_to rally.name, rally_path(rally) %><br><%= rally.description.truncate(150) %></td>
       <td><%= rally.surface %></td>
       <td><%= rally.starts_at %></td>
       <td><%= image_tag rally.logo.to_s, :class => 'thumbnail' %></td>
