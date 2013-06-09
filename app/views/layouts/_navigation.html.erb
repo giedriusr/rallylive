@@ -2,4 +2,11 @@
   <li <%= sidebar_link(request.path_info, root_path) %>><%= link_to 'Rezultatai', root_path %></li>
   <li <%= sidebar_link(request.path_info, start_order_path) %>><%= link_to 'Dalyviai', start_order_path %></li>
   <li <%= sidebar_link(request.path_info, special_stages_path) %>><%= link_to 'GR', special_stages_path %></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Daugiau.. <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Kalendorius 2013</a></li>
+      <li><a href="#">Lentelė</a></li>
+    </ul>
+  </li>
 </ul>
