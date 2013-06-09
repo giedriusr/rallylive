@@ -2,16 +2,16 @@
 
 <table class="table table-striped">
   <tr>
-    <th width="20px">Eil. Nr.</th>
+    <th width="20px">St. Nr.</th>
     <th>Ekipažas<br>Komanda</th>
     <th>Automobilis</th>
-    <th><%= link_to 'Įsk.', '#', :rel => 'tooltip', :title => 'Klasė / Įskaita' %></th>
+    <th>Įsk</th>
     <th>Šalis</th>
   </tr>
   <% @participants.each do |participant| %>
     <tr>
       <td><%= participant.start_number %>.</td>
-      <td><%= participant.driver_name %>, <%= participant.co_driver_name %><br><%= participant.team_name %></td>
+      <td><%= participant.driver_name %><br><%= participant.co_driver_name %><br><%= participant.team_name %></td>
       <td><%= participant.car_name %></td>
       <td><%= participant.classification %></td>
       <td><%= participant.country_code %></td>
