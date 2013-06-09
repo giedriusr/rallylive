@@ -20,6 +20,15 @@ class HomeController < ApplicationController
     @stages = RallyStage.where(:rally_id => @rally.id).order('number ASC')
   end
 
+  def calendar
+  end
+
+  def standings
+  end
+
+  def retirements
+  end
+
   private
     def set_rally
       @rally = Rally.where(:is_current => true).first

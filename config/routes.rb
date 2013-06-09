@@ -17,6 +17,7 @@ Rallylive::Application.routes.draw do
   get '/saules_ralis', to: 'home#show_rally', as: 'show_rally'
   get '/kalendorius', to: 'home#calendar', as: 'calendar'
   get '/lentele', to: 'home#standings', as: 'standings'
+  get '/pasitraukimai', to: 'home#retirements', as: 'retirements'
 
   resources :rallies do
     resources :participants, :stages, :stage_times
