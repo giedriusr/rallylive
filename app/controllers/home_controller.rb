@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   before_action :set_rally
+
   def index
+    @stage_times = RallyEventStageTime.where(:rally_id => @rally.id).order('time ASC')
   end
 
   def show_rally

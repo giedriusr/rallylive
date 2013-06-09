@@ -28,4 +28,10 @@ module ApplicationHelper
     return "#{minutes}:#{seconds_with_zero}" if minutes.to_i > 0
     return "#{seconds}"
   end
+
+  def average_speed(time, length)
+     return '-' if time == 0 || time.nil?
+     return '-' if length.nil?
+     (length / time.to_f * 3600).round(2)
+   end
 end

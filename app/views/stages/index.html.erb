@@ -19,7 +19,7 @@
       <td><%= stage.starts_at %></td>
       <td>
         <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_stage_path(:rally_id => stage.rally_id, :id => stage.id), :class => 'btn btn-warning btn-mini' %>
-        <%= link_to raw('<span class="icon-remove"></span>'), rally_stage_path(:rally_id => stage.rally_id, :id => stage.id), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => 'Ar tikrai?' %>
+        <%= link_to raw('<span class="icon-remove"></span>'), rally_stage_path(:rally_id => stage.rally_id, :id => stage.id), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
       </td>
     </tr>
   <% end %>

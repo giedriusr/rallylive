@@ -1,8 +1,7 @@
 <ul class="nav nav-pills pull-right">
   <li <%= sidebar_link(request.path_info, root_path) %>><%= link_to 'Pradžia', root_path %></li>
   <li <%= sidebar_link(request.path_info, show_rally_path) %>><%= link_to 'Saulė "777"', show_rally_path %></li>
-  <li <%= sidebar_link(request.path_info, participants_path) %>><%= link_to 'Dalyvių sąrašas', participants_path %></li>
-  <li <%= sidebar_link(request.path_info, start_order_path) %>><%= link_to 'Starto tvarka', start_order_path %></li>
+  <li <%= sidebar_link(request.path_info, start_order_path) %>><%= link_to 'Dalyviai / Starto tvarka', start_order_path %></li>
   <li <%= sidebar_link(request.path_info, special_stages_path) %>><%= link_to 'Greičio ruožai', special_stages_path %></li>
   <li <%= sidebar_link(request.path_info, about_us_path) %>><%= link_to 'Apie projektą', about_us_path %></li>
 </ul>

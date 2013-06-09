@@ -3,7 +3,8 @@ class StageTimesController < ApplicationController
   before_action :set_stage_time, :only => [:edit, :update, :destroy, :show]
 
   def index
-    @stage_times = RallyEventStageTime.where(:rally_id => @rally.id).order('id DESC')
+    @stage_times = RallyEventStageTime.where(:rally_id => @rally.id).order('id DESC').
+    includes(:participant).includes(:stage)
     @stage_time = RallyEventStageTime.new
   end
 

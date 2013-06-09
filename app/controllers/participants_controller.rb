@@ -4,6 +4,7 @@ class ParticipantsController < ApplicationController
 
   def index
     @participants = RallyParticipant.where(:rally_id => @rally.id).order('start_number ASC')
+    @participant = RallyParticipant.new
   end
 
   def new
@@ -13,9 +14,13 @@ class ParticipantsController < ApplicationController
   def create
     @participant = RallyParticipant.new
     if @participant.update_attributes(participant_params)
-      redirect_to rally_participants_path(@rally), :notice => 'Ok'
     else
       render :new
+    end
+
+    respond_to do |format|
+      format.html { redirect_to rally_participants_path(@rally), :notice => 'Ok' }
+      format.js
     end
   end
 

@@ -17,7 +17,7 @@
       <td><%= rally.is_current ? 'Taip' : 'Ne' %></td>
       <td>
       <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_path(rally), :class => 'btn btn-warning btn-mini' %>
-      <%= link_to raw('<span class="icon-remove"></span>'), rally_path(rally), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => 'Ar tikrai?' %>
+      <%= link_to raw('<span class="icon-remove"></span>'), rally_path(rally), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
       </td>
     </tr>
   <% end %>

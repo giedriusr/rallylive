@@ -1,4 +1,4 @@
-$('#new_rally_event_stage_time')[0].reset();
+$('#new_rally_event_stage_time #rally_event_stage_time_time').val('');
 $('#new_rally_event_stage_time').fadeOut('fast');
 $('#new_rally_event_stage_time').fadeIn('fast');
 $('#laikai tr:first').after('<tr><td></td><td><%= @stage_time.participant.name %></td><td><%= @stage_time.stage.name %></td><td><%= format_time(@stage_time.time) %></td><td></td></tr>')

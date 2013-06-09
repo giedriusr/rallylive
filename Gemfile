@@ -25,6 +25,7 @@ gem 'newrelic_rpm'
 gem 'best_in_place'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'chosen-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

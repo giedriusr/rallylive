@@ -32,15 +32,19 @@
     <th>Laikas</th>
     <th>Vid. greitis</th>
   </tr>
-  <tr>
-    <td colspan="6">Rezultatų dar nėra!</td>
-  </tr>
-  <!-- <tr>
-    <td>1</td>
-    <td>2</td>
-    <td>V. Švedas<br>Ž. Sakalauskas<br>Mitsubishi Lancer EVO X</td>
-    <td>2</td>
-    <td>41:09.8</td>
-    <td>115.66 km/h</td>
-  </tr> -->
+  <% @stage_times.each_with_index do |stage_time, index| %>
+    <tr>
+      <td><%= index + 1 %>.</td>
+      <td><%= stage_time.participant.start_number %></td>
+      <td><%= stage_time.participant.name %></td>
+      <td><%= stage_time.participant.classification %></td>
+      <td><%= format_time(stage_time.time) %></td>
+      <td><%= average_speed(stage_time.time, @rally.length) %> km/h</td>
+    </tr>
+  <% end %>
+  <% if @stage_times.size == 0 %>
+    <tr>
+      <td colspan="6">Rezultatų dar nėra!</td>
+    </tr>
+  <% end %>
 </table>

@@ -52,7 +52,7 @@
         <div class="alert">
         Prisijungęs kaip: <%= current_user.email %><br>
         <%= link_to 'Admin', rallies_path, :class => 'btn btn-mini' %>
-        <%= link_to 'Atsijungti', sign_out_path, :method => :destroy, :class => 'btn btn-mini btn-danger', :confirm => 'Ar tikrai?' %>
+        <%= link_to 'Atsijungti', sign_out_path, :method => :destroy, :class => 'btn btn-mini btn-danger', data: { confirm: 'Ar tikrai?' } %>
         </div>
       <% end %>
       <%= render 'layouts/messages' %>

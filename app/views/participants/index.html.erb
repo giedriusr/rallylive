@@ -1,7 +1,25 @@
 <h4><%= @rally.name %> dalyviai</h4>
 <%= link_to 'Naujas dalyvis', new_rally_participant_path(@rally), :class => 'btn btn-primary btn-mini' %>
 <br><br>
-<table class="table table-striped">
+<%= form_for(@participant, :url => rally_participants_path, :remote => true) do |f| %>
+  <%= f.hidden_field :rally_id, :value => @rally.id %>
+  <table class="table table-condensed">
+    <tr>
+      <td><%= f.text_field :start_number, :required => true, :placeholder => 'Starto numeris', :class => 'input-small' %></td>
+      <td><%= f.text_field :driver_name, :required => true, :placeholder => 'Vairuotojas', :class => 'input-small' %></td>
+      <td><%= f.text_field :co_driver_name, :required => true, :placeholder => 'Šturmanas', :class => 'input-small' %></td>
+      <td><%= f.text_field :team_name, :placeholder => 'Komanda', :class => 'input-small' %></td>
+      </tr>
+      <tr>
+      <td><%= f.text_field :car_name, :required => true, :placeholder => 'Automobilis', :class => 'input-small' %></td>
+      <td><%= f.text_field :classification, :required => true, :placeholder => 'Klasė', :class => 'input-small' %></td>
+      <td><%= f.text_field :country_code, :required => true, :placeholder => 'Šalis', :class => 'input-small' %></td>
+      <td><%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini', :id => 'btn' %></td>
+    </tr>
+  </table>
+<% end %>
+
+<table class="table table-striped" id="participants">
   <tr>
     <th width="20px">Eil. Nr.</th>
     <th>Ekipažas<br>Komanda</th>
@@ -19,7 +37,7 @@
       <td><%= participant.country_code %></td>
       <td>
         <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-warning btn-mini' %>
-        <%= link_to raw('<span class="icon-remove"></span>'), rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => 'Ar tikrai?' %>
+        <%= link_to raw('<span class="icon-remove"></span>'), rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
       </td>
     </tr>
   <% end %>
