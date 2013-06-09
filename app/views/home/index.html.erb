@@ -1,8 +1,10 @@
 <div class="">
   <p align="center"><%= image_tag "/#{@rally.id}_ralis.png", :width => '200px' %></p><br>
-  Ralis: <strong><%= link_to @rally.name, show_rally_path %></strong><br>
-  Danga: <%= @rally.surface %><br>
-  Prasideda: <%= @rally.starts_at %><br><br>
+  Ralis: <strong><%= @rally.name %></strong> (<%= link_to 'pilnas aprašymas', show_rally_path %>)<br>
+  Danga: <%= @rally.surface %>, <%= @rally.length.round(2) %> km<br>
+  Prasideda: <%= @rally.starts_at %><br>
+  Dalyvių skaičius: <%= @rally.participants.size %><br>
+  GR skaičius: <%= @rally.stages.size %><br><br>
 
   <table>
     <tr>
