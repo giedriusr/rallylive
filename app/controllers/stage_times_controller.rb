@@ -1,21 +1,26 @@
 class StageTimesController < ApplicationController
   before_action :set_rally
-  before_action :set_stage, :only => [:edit, :update, :destroy, :show]
+  before_action :set_stage_time, :only => [:edit, :update, :destroy, :show]
 
   def index
-    @stage_times = RallyEventStageTime.where(:rally_id => @rally.id).order('id ASC')
+    @stage_times = RallyEventStageTime.where(:rally_id => @rally.id).order('id DESC')
+    @stage_time = RallyEventStageTime.new
   end
 
   def new
-    @stage = RallyStage.new
+    @stage_time = RallyEventStageTime.new
   end
 
   def create
-    @stage = RallyStage.new
-    if @stage.update_attributes(stage_params)
-      redirect_to rally_stages_path(@rally), :notice => 'Ok'
+    @stage_time = RallyEventStageTime.new
+    if @stage_time.update_attributes(stage_time_params)
     else
       render :new
+    end
+
+    respond_to do |format|
+      format.html { redirect_to rally_stage_times_path(@rally), :notice => 'Ok' }
+      format.js
     end
   end
 
@@ -23,7 +28,7 @@ class StageTimesController < ApplicationController
   end
 
   def update
-    if @stage.update_attributes(stage_params)
+    if @stage_time.update_attributes(stage_params)
       redirect_to rally_stages_path(@rally), :notice => 'Ok'
     else
       render :edit
@@ -31,8 +36,8 @@ class StageTimesController < ApplicationController
   end
 
   def destroy
-    @stage.destroy
-    redirect_to rally_stages_path(@rally), :notice => 'Ok'
+    @stage_time.destroy
+    redirect_to rally_stage_times_path(@rally), :notice => 'Ok'
   end
 
   def show
@@ -44,10 +49,10 @@ class StageTimesController < ApplicationController
     end
 
     def set_stage
-      @stage = RallyStage.find(params[:id])
+      @stage_time = RallyEventStageTime.find(params[:id])
     end
 
-    def stage_params
-      params.require(:rally_stage).permit(:rally_id, :name, :length, :surface, :starts_at, :number)
+    def stage_time_params
+      params.require(:rally_event_stage_time).permit(:rally_id, :stage_id, :participant_id, :stage_number, :time)
     end
 end

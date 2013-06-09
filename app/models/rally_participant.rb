@@ -3,6 +3,6 @@ class RallyParticipant < ActiveRecord::Base
   belongs_to :rally, :class_name => Rally
 
   def name
-    "#{self.driver_name}, #{self.co_driver_name}"
+    "#{self.driver_name}, #{self.co_driver_name} - #{self.team_name}"
   end
 end
