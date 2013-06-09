@@ -1,6 +1,4 @@
-<h1>Editing <%= @rally.name %></h1>
+<h4>Atnaujinti <%= @rally.name %></h4>
 
 <%= render 'form' %>
-
-<%= link_to "Back to #{@rally.name} rally", rally_path(@rally), :class => 'label' %> |
-<%= link_to 'Back to list of rallies', rallies_path, :class => 'label' %>
+<%= link_to 'Grįžti į bendrą sąrašą', rallies_path, :class => 'label' %>

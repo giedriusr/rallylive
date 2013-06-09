@@ -1,0 +1,26 @@
+<h4><%= @rally.name %> greičio ruožų laikai</h4>
+<%= link_to 'Naujas laikas', new_rally_stage_time_path(@rally), :class => 'btn btn-primary btn-mini' %>
+<br><br>
+<table class="table table-striped">
+  <tr>
+    <th width="20px">#</th>
+    <th>Ekipažas</th>
+    <th>GR</th>
+    <th>Laikas</th>
+    <th></th>
+  </tr>
+  <% @stage_times.each do |stage_time| %>
+    <tr>
+      <td><%= stage_time.participant.name %>.</td>
+      <td><%= stage_time.stage.name %></td>
+      <td><%= stage.time %></td>
+      <td>
+        <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_stage_time_path(:rally_id => stage_time.rally_id, :id => stage_time.id), :class => 'btn btn-warning btn-mini' %>
+        <%= link_to raw('<span class="icon-remove"></span>'), rally_stage_time_path(:rally_id => stage_time.rally_id, :id => stage_time.id), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => 'Ar tikrai?' %>
+      </td>
+    </tr>
+  <% end %>
+  <% if @stage_times.size == 0 %>
+    <tr><td colspan="6"><span class="label label-warning">Nėra greičio ruožų laikų!</span></td></tr>
+  <% end %>
+</table>

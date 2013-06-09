@@ -1,7 +1,7 @@
 <p>
   <%= link_to "Dalyvių sąrašas (#{@rally.participants.size})", rally_participants_path(@rally), :class => 'btn' %>
   <%= link_to "Greičio ruožai (#{@rally.stages.size})", rally_stages_path(@rally), :class => 'btn' %>
-  <%= link_to "Rezultatai (#{@rally.stage_times.size})", '', :class => 'btn' %>
+  <%= link_to "Rezultatai (#{@rally.stage_times.size})", rally_stage_times_path(@rally), :class => 'btn' %>
 </p>
 <br>
 <p align="center"><%= image_tag @rally.logo.to_s, :class => 'thumbnail', :width => '200px' %></p><br>

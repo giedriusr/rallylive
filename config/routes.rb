@@ -17,6 +17,6 @@ Rallylive::Application.routes.draw do
   get '/saules_ralis', to: 'home#show_rally', as: 'show_rally'
 
   resources :rallies do
-    resources :participants, :stages
+    resources :participants, :stages, :stage_times
   end
 end
