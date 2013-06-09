@@ -49,7 +49,7 @@ class StageTimesController < ApplicationController
       @rally = Rally.find(params[:rally_id])
     end
 
-    def set_stage
+    def set_stage_time
       @stage_time = RallyEventStageTime.find(params[:id])
     end
 
