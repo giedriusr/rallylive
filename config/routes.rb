@@ -16,6 +16,6 @@ Rallylive::Application.routes.draw do
   get '/greicio_ruozai', to: 'home#special_stages', as: 'special_stages'
 
   resources :rallies do
-    resources :participants
+    resources :participants, :stages
   end
 end

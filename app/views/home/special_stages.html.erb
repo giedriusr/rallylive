@@ -1,1 +1,23 @@
 <h3>Greičio ruožai</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th width="20px">Nr.</th>
+    <th>Pavadinimas</th>
+    <th>Danga</th>
+    <th>Ilgis</th>
+    <th>Startas</th>
+  </tr>
+  <% @stages.each do |stage| %>
+    <tr>
+      <td><%= stage.number %>.</td>
+      <td><%= stage.name %></td>
+      <td><%= stage.surface %></td>
+      <td><%= stage.length %>km</td>
+      <td><%= stage.starts_at %></td>
+    </tr>
+  <% end %>
+  <% if @stages.size == 0 %>
+    <tr><td colspan="6"><span class="label label-warning">Nėra greičio ruožų!</span></td></tr>
+  <% end %>
+</table>

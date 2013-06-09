@@ -1,0 +1,30 @@
+<% url = @stage.new_record? ? rally_stages_path : rally_stage_path(:rally_id => @rally) %>
+<%= form_for(@stage, :url => url) do |f| %>
+
+  <table class="table table-striped">
+    <tr>
+      <td width="200px"><%= f.label :name, 'Pavadinimas' %></td>
+      <td><%= f.text_field :name, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :length, 'Ilgis' %></td>
+      <td><%= f.text_field :length, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :number, 'Numeris' %></td>
+      <td><%= f.text_field :number, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :surface, 'Danga' %></td>
+      <td><%= f.text_field :surface %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :starts_at, 'Startas' %></td>
+      <td><%= f.text_field :starts_at, :required => true %></td>
+    </tr>
+  </table>
+  <%= f.hidden_field :rally_id, :value => @rally.id %>
+  <div class="actions">
+    <%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini' %>
+  </div>
+<% end %>
