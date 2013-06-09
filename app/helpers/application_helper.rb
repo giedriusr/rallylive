@@ -30,8 +30,12 @@ module ApplicationHelper
   end
 
   def average_speed(time, length)
-     return '-' if time == 0 || time.nil?
-     return '-' if length.nil?
-     (length / time.to_f * 3600).round(2)
-   end
+    return '-' if time == 0 || time.nil?
+    return '-' if length.nil?
+    (length / time.to_f * 3600).round(2)
+  end
+
+  def classifications
+    ['SG-2', 'SG-1', '2WD', 'R4/2', 'L8/3', 'WRC/1', 'N4/2', 'L9', 'L8/3', 'A7/4', '5', 'L9/7', 'L7/6', 'SG/8']
+  end
 end

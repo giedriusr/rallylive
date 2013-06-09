@@ -12,3 +12,7 @@
  *= require chosen
  *= require_tree .
  */
+
+.mazas {
+  width: 100px;
+}

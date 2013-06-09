@@ -11,7 +11,7 @@
       </tr>
       <tr>
       <td><%= f.text_field :car_name, :required => true, :placeholder => 'Automobilis', :class => 'input-small' %></td>
-      <td><%= f.text_field :classification, :required => true, :placeholder => 'Klasė', :class => 'input-small' %></td>
+      <td><%= f.select :classification, options_for_select(classifications), { include_blank: 'Klasė' }, { class: 'chzn-select mazas' } %></td>
       <td><%= f.text_field :country_code, :required => true, :placeholder => 'Šalis', :class => 'input-small' %></td>
       <td><%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini', :id => 'btn' %></td>
     </tr>
