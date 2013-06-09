@@ -13,5 +13,7 @@ Rallylive::Application.routes.draw do
   get '/apie_mus', to: 'home#about_us', as: 'about_us'
   get '/dalyviu_sarasas', to: 'home#participants', as: 'participants'
 
-  resources :rallies
+  resources :rallies do
+    resources :participants
+  end
 end

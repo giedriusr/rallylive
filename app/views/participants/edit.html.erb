@@ -1,0 +1,5 @@
+<h1>Atnaujinti <%= @participant.driver_name %>, <%= @participant.co_driver_name %> įrašą</h1>
+
+<%= render 'form' %>
+
+<%= link_to "Grįžti į #{@participant.team_name}", rally_participants_path(@rally), :class => 'label' %>

@@ -1,0 +1,38 @@
+<% url = @participant.new_record? ? rally_participants_path : rally_participant_path(:rally_id => @rally) %>
+<%= form_for(@participant, :url => url) do |f| %>
+
+  <table class="table table-striped">
+    <tr>
+      <td width="200px"><%= f.label :start_number %></td>
+      <td><%= f.text_field :start_number, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :driver_name, 'Vairuotojas' %></td>
+      <td><%= f.text_field :driver_name, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :co_driver_name, 'Šturmanas' %></td>
+      <td><%= f.text_field :co_driver_name, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :team_name, 'Komanda' %></td>
+      <td><%= f.text_field :team_name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :car_name, 'Automobilis' %></td>
+      <td><%= f.text_field :car_name, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :classification, 'Įskaita / Klasė' %></td>
+      <td><%= f.text_field :classification, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :country_code, 'Šalis (pvz. LT)' %></td>
+      <td><%= f.text_field :country_code, :required => true %></td>
+    </tr>
+  </table>
+  <%= f.hidden_field :rally_id, :value => @rally.id %>
+  <div class="actions">
+    <%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini' %>
+  </div>
+<% end %>

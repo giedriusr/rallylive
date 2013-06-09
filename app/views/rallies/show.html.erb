@@ -1,0 +1,11 @@
+<p>
+  <%= link_to 'Dalyvių sąrašas', rally_participants_path(@rally), :class => 'btn' %>
+  <%= link_to 'Greičio ruožai', '', :class => 'btn' %>
+  <%= link_to 'Rezultatai', '', :class => 'btn' %>
+</p>
+<br>
+<p align="center"><%= image_tag @rally.logo.to_s, :class => 'thumbnail', :width => '200px' %></p><br>
+Ralis: <strong><%= @rally.name %></strong><br>
+Danga: <%= @rally.surface %><br>
+Prasideda: <%= @rally.starts_at %><br>
+Aprašymas: <%= @rally.description %><br><br>

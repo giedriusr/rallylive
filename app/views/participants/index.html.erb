@@ -1,0 +1,29 @@
+<h1>Ralio "<%= @rally.name %>" dalyviai</h1>
+<%= link_to 'Naujas dalyvis', new_rally_participant_path(@rally), :class => 'btn btn-primary btn-mini' %>
+<br><br>
+<table class="table table-striped">
+  <tr>
+    <th width="20px">Eil. Nr.</th>
+    <th>Ekipažas<br>Komanda</th>
+    <th>Automobilis</th>
+    <th><%= link_to 'Įsk.', '#', :rel => 'tooltip', :title => 'Klasė / Įskaita' %></th>
+    <th>Šalis</th>
+    <th></th>
+  </tr>
+  <% @participants.each do |participant| %>
+    <tr>
+      <td><%= participant.start_number %></td>
+      <td><%= participant.driver_name %>, <%= participant.co_driver_name %><br><%= participant.team_name %></td>
+      <td><%= participant.car_name %></td>
+      <td><%= participant.classification %></td>
+      <td><%= participant.country_code %></td>
+      <td>
+        <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-warning btn-mini' %>
+        <%= link_to raw('<span class="icon-remove"></span>'), rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-danger btn-mini', :method => :delete, :confirm => 'Ar tikrai?' %>
+      </td>
+    </tr>
+  <% end %>
+  <% if @participants.size == 0 %>
+    <tr><td colspan="6"><span class="label label-warning">Nėra dalyvių!</span></td></tr>
+  <% end %>
+</table>
