@@ -1,6 +1,5 @@
 <h4><%= @rally.name %> dalyviai</h4>
-<%= link_to 'Naujas dalyvis', new_rally_participant_path(@rally), :class => 'btn btn-primary btn-mini' %>
-<br><br>
+<br>
 <%= form_for(@participant, :url => rally_participants_path, :remote => true) do |f| %>
   <%= f.hidden_field :rally_id, :value => @rally.id %>
   <table class="table table-condensed">
@@ -29,7 +28,7 @@
     <th></th>
   </tr>
   <% @participants.each do |participant| %>
-    <tr>
+    <tr id="dalyvis_<%= participant.id %>">
       <td><%= participant.start_number %>.</td>
       <td><%= participant.driver_name %>, <%= participant.co_driver_name %><br><u><%= participant.team_name %></u></td>
       <td><%= participant.car_name %></td>
