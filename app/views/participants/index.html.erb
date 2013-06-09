@@ -34,7 +34,7 @@
       <td><%= participant.car_name %></td>
       <td><%= participant.classification %></td>
       <td><%= participant.country_code %></td>
-      <td>
+      <td width="70px">
         <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-warning btn-mini' %>
         <%= link_to raw('<span class="icon-remove"></span>'), rally_participant_path(:rally_id => participant.rally_id, :id => participant.id), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
       </td>
