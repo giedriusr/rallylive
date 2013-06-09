@@ -1,0 +1,10 @@
+<h1 align="center"><%= @rally.name %></h1>
+<p align="center"><%= image_tag "/#{@rally.id}_ralis.png", :width => '200px' %></p>
+
+Danga: <%= @rally.surface %><br>
+Ilgis: <%= @rally.length.round(2) %> km<br>
+Prasideda: <%= @rally.starts_at %><br>
+Dalyvių skaičius: <%= @rally.participants.size %><br>
+Greičio ruožų skaičius: <%= @rally.stages.size %>
+<br><br>
+<%= simple_format(@rally.description, :align => 'justify') %>

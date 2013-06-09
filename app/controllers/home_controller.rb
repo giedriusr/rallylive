@@ -3,6 +3,9 @@ class HomeController < ApplicationController
   def index
   end
 
+  def show_rally
+  end
+
   def participants
     @participants = RallyParticipant.where(:rally_id => @rally.id)
   end
