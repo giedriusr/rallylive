@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130609061833) do
+ActiveRecord::Schema.define(version: 20130609211705) do
 
   create_table "rallies", force: true do |t|
     t.string   "name"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 20130609061833) do
     t.string   "starts_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "closing_at"
+    t.string   "opening_at"
   end
 
   add_index "rally_stages", ["rally_id"], name: "index_rally_stages_on_rally_id", using: :btree

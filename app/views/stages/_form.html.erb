@@ -22,6 +22,14 @@
       <td><%= f.label :starts_at, 'Startas' %></td>
       <td><%= f.text_field :starts_at, :required => true %></td>
     </tr>
+    <tr>
+      <td><%= f.label :closing_at, 'Uždaro' %></td>
+      <td><%= f.text_field :closing_at, :required => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :opening_at, 'Atidaro' %></td>
+      <td><%= f.text_field :opening_at, :required => true %></td>
+    </tr>
   </table>
   <%= f.hidden_field :rally_id, :value => @rally.id %>
   <div class="actions">
