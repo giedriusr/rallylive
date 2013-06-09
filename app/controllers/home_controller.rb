@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
 
   def participants
-    @participants = RallyParticipant.where(:rally_id => @rally.id)
+    @participants = RallyParticipant.where(:rally_id => @rally.id).order('start_number ASC')
   end
 
   def start_order
