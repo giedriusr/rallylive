@@ -29,6 +29,23 @@ module ApplicationHelper
     return "#{seconds}"
   end
 
+  def penalty_time(seconds)
+    seconds = seconds.to_i
+    return '0.0' if !seconds.present? || seconds == 0
+    if seconds < 60
+      "0:" + seconds.to_s
+    else
+      time = format_time(seconds)
+      if seconds < 600 # less than 10 minutes
+        time[0, 4]
+      elsif seconds < 3600
+        time[0, 5]
+      else
+        time[0, 7]
+      end
+    end
+  end
+
   def average_speed(time, length)
     return '-' if time == 0 || time.nil?
     return '-' if length.nil?
@@ -37,5 +54,9 @@ module ApplicationHelper
 
   def classifications
     ['SG-2', 'SG-1', '2WD', 'R4/2', 'L8/3', 'WRC/1', 'N4/2', 'L9', 'L8/3', 'A7/4', '5', 'L9/7', 'L7/6', 'SG/8', 'SG-3']
+  end
+
+  def full_team(participant)
+    raw("#{participant.driver_name}<br>#{participant.co_driver_name}<br><u>#{participant.team_name}</u>")
   end
 end

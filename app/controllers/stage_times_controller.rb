@@ -54,6 +54,7 @@ class StageTimesController < ApplicationController
     end
 
     def stage_time_params
-      params.require(:rally_event_stage_time).permit(:rally_id, :stage_id, :participant_id, :stage_number, :time)
+      params.require(:rally_event_stage_time).permit(:rally_id, :stage_id, :participant_id, :stage_number,
+      :time, :penalty_in_seconds)
     end
 end

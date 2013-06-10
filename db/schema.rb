@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130609211705) do
+ActiveRecord::Schema.define(version: 20130610123343) do
 
   create_table "rallies", force: true do |t|
     t.string   "name"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20130609211705) do
 
   add_index "rallies", ["is_current"], name: "index_rallies_on_is_current", using: :btree
 
+  create_table "rally_event_retirements", force: true do |t|
+    t.integer  "rally_id"
+    t.integer  "participant_id"
+    t.integer  "stage_id"
+    t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rally_event_retirements", ["participant_id"], name: "index_rally_event_retirements_on_participant_id", using: :btree
+  add_index "rally_event_retirements", ["rally_id"], name: "index_rally_event_retirements_on_rally_id", using: :btree
+  add_index "rally_event_retirements", ["stage_id"], name: "index_rally_event_retirements_on_stage_id", using: :btree
+
   create_table "rally_event_stage_times", force: true do |t|
     t.integer  "rally_id"
     t.integer  "stage_id"
@@ -34,6 +47,7 @@ ActiveRecord::Schema.define(version: 20130609211705) do
     t.float    "time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "penalty_in_seconds"
   end
 
   add_index "rally_event_stage_times", ["participant_id"], name: "index_rally_event_stage_times_on_participant_id", using: :btree

@@ -38,9 +38,13 @@
     <tr>
       <td><%= index + 1 %>.</td>
       <td><%= stage_time.participant.start_number %></td>
-      <td><%= stage_time.participant.name %></td>
+      <td><%= full_team(stage_time.participant) %></td>
       <td><%= stage_time.participant.classification %></td>
-      <td><%= format_time(stage_time.time) %></td>
+      <td><%= format_time(stage_time.penalty_time.to_i + stage_time.time) %><br>
+        <% unless stage_time.penalty_time.nil? %>
+          <span class="label label-important"><%= penalty_time(stage_time.penalty_time) %></span>
+        <% end %>
+        </td>
       <td><%= average_speed(stage_time.time, @rally.length) %> km/h</td>
     </tr>
   <% end %>

@@ -8,7 +8,10 @@
       <td><%= f.select :participant_id, @rally.participants.collect {|p| [ "#{p.name}", p.id ] }, { include_blank: true },
         { class: 'chzn-select' } %></td>
       <td><%= f.text_field :time, :placeholder => 'laikas..', :class => 'input-small', :required => true %></td>
-      <td><%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini', :id => 'btn' %></td>
+      <td><%= f.text_field :penalty_in_seconds, :placeholder => 'bauda..', :class => 'input-small' %></td>
+      </tr>
+      <tr>
+      <td colspan="4"><%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini', :id => 'btn' %></td>
     </tr>
   </table>
 <% end %>
@@ -19,14 +22,18 @@
     <th>Ekipažas</th>
     <th>GR</th>
     <th>Laikas</th>
+    <th>Bauda</th>
+    <th>Laikas</th>
     <th></th>
   </tr>
   <% @stage_times.each_with_index do |stage_time, index| %>
     <tr id="laikas_<%= stage_time.id %>">
       <td><%= index + 1 %>.</td>
-      <td><%= stage_time.participant.name %></td>
+      <td><%= full_team(stage_time.participant) %></td>
       <td><%= stage_time.stage.name %></td>
       <td><%= format_time(stage_time.time) %></td>
+      <td><%= penalty_time(stage_time.penalty_in_seconds) %></td>
+      <td><%= format_time(stage_time.penalty_in_seconds.to_i + stage_time.time) %></td>
       <td>
         <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_stage_time_path(:rally_id => stage_time.rally_id, :id => stage_time.id), :class => 'btn btn-warning btn-mini' %>
         <%= link_to raw('<span class="icon-remove"></span>'), rally_stage_time_path(:rally_id => stage_time.rally_id, :id => stage_time.id), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
