@@ -1,5 +1,25 @@
 <h4>Pasitraukimai</h4>
-<p>Informacijos apie pasitraukimus šiuo metu nėra.</p>
+
+<table class="table table-condensed table-striped">
+  <tr>
+    <th>Ekipažas</th>
+    <th>GR</th>
+    <th>Priežastis</th>
+  </tr>
+  <% @retirements.each do |retirement| %>
+    <tr>
+      <td><%= full_team(retirement.participant) %></td>
+      <td><%= retirement.stage.name %></td>
+      <td><%= retirement.reason %></td>
+    </tr>
+  <% end %>
+  <% if @retirements.size == 0 %>
+  <tr>
+    <td colspan="3">Informacijos apie pasitraukimus nėra!</td>
+  </tr>
+  <% end %>
+</table>
+
 <%= render 'layouts/print' %>
 <hr>
 <% if Rails.env.production? %>

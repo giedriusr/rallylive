@@ -27,6 +27,7 @@ class HomeController < ApplicationController
   end
 
   def retirements
+    @retirements = RallyEventRetirement.where(:rally_id => @rally.id).includes(:participant, :stage)
   end
 
   private
