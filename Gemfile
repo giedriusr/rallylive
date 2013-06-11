@@ -26,9 +26,8 @@ gem 'best_in_place'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'chosen-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'jquery-turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
 
 group :doc do
