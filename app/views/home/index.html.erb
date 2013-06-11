@@ -30,7 +30,7 @@
     <%= link_to "#{stage.name}", root_path(:stage_id => stage), :class => "btn btn-mini #{stage.is_current ? 'btn-warning' : 'btn-primary'}" %>
   <% end %>
   <%#= link_to "Visi", root_path, :class => 'btn btn-mini btn-inverse' %>
-  <%= select_tag 'klase', options_for_select(classifications), { :prompt => 'Bendras', class: 'chzn-select mazas' } %>
+  <%= select_tag 'klase', options_for_select(classifications), { :prompt => 'Klasė', class: 'chzn-select mazas' } %>
 </p>
 <table class="table table-striped">
   <tr>
