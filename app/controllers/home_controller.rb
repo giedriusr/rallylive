@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :set_rally
+  caches_action :retirements, :participants, :special_stages, :calendar, :standings
 
   def index
     @stage_times = RallyEventStageTime.final_times(@rally.id)
