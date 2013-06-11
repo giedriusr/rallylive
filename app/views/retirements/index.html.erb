@@ -1,0 +1,34 @@
+<h4><%= @rally.name %> pasitraukimai</h4>
+<%= render 'admin_nav' %>
+<br>
+
+<p><%= link_to 'Naujas pasitraukimas', new_rally_retirement_path, :class => 'btn btn-primary btn-mini' %></p>
+
+<table class="table table-striped" id="participants">
+  <tr>
+    <th width="20px">St. Nr.</th>
+    <th>Ekipažas<br>Komanda<br>Automobilis</th>
+    <th>Įskaita</th>
+    <th>Šalis</th>
+    <th>GR</th>
+    <th>Priežastis</th>
+    <th></th>
+  </tr>
+  <% @retirements.each do |retirement| %>
+    <tr id="dalyvis_<%= retirement.id %>">
+      <td><%= retirement.participant.start_number %>.</td>
+      <td><%= retirement.participant.driver_name %>, <%= retirement.participant.co_driver_name %><br><u><%= retirement.participant.team_name %></u><br><%= retirement.participant.car_name %></td>
+      <td><%= retirement.participant.classification %></td>
+      <td><%= retirement.participant.country_code %></td>
+      <td><%= retirement.stage.name %></td>
+      <td><%= retirement.reason %></td>
+      <td width="70px">
+        <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_retirement_path(:rally_id => retirement.rally_id, :id => retirement.id), :class => 'btn btn-warning btn-mini' %>
+        <%= link_to raw('<span class="icon-remove"></span>'), rally_retirement_path(:rally_id => retirement.rally_id, :id => retirement.id), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
+      </td>
+    </tr>
+  <% end %>
+  <% if @retirements.size == 0 %>
+    <tr><td colspan="6"><span class="label label-warning">Nėra pasitraukimų!</span></td></tr>
+  <% end %>
+</table>

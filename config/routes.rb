@@ -9,6 +9,7 @@ Rallylive::Application.routes.draw do
     get '/reset_password', to: 'devise/passwords#new', as: 'reset_password'
     get '/user/account', to: 'devise/registrations#edit', as: 'account'
   end
+
   root 'home#index'
   get '/apie_mus', to: 'home#about_us', as: 'about_us'
   get '/dalyviu_sarasas', to: 'home#participants', as: 'participants'
@@ -21,6 +22,6 @@ Rallylive::Application.routes.draw do
   get '/orai', to: 'home#weather', as: 'weather'
 
   resources :rallies do
-    resources :participants, :stages, :stage_times
+    resources :participants, :stages, :stage_times, :retirements
   end
 end

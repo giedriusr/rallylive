@@ -1,0 +1,7 @@
+<p>
+  <%= link_to "#{@rally.name}", rally_path(@rally), :class => 'btn btn-warning' %>
+  <%= link_to "Dalyvių sąrašas (#{@rally.participants.size})", rally_participants_path(@rally), :class => 'btn btn-info' %>
+  <%= link_to "Greičio ruožai (#{@rally.stages.size})", rally_stages_path(@rally), :class => 'btn btn-info' %>
+  <%= link_to "Rezultatai (#{@rally.stage_times.size})", rally_stage_times_path(@rally), :class => 'btn btn-info' %>
+  <%= link_to "Pasitraukimai (#{@rally.retirements.size})", rally_retirements_path(@rally), :class => 'btn btn-info' %>
+</p>

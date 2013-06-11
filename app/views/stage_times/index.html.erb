@@ -1,4 +1,5 @@
 <h4><%= @rally.name %> greičio ruožų laikai</h4>
+<%= render 'admin_nav' %>
 <br>
 <%= form_for(@stage_time, :url => rally_stage_times_path, :remote => true) do |f| %>
   <%= f.hidden_field :rally_id, :value => @rally.id %>

@@ -1,8 +1,8 @@
 class RallyEventStageTime < ActiveRecord::Base
   # attr_accessible :rally_id, :stage_id, :participant_id, :stage_number, :time
-  belongs_to :rally, :class_name => Rally
-  belongs_to :participant, :class_name => RallyParticipant
-  belongs_to :stage, :class_name => RallyStage
+  belongs_to :rally, class_name: 'Rally'
+  belongs_to :participant, class_name: 'RallyParticipant'
+  belongs_to :stage, class_name: 'RallyStage'
 
   def self.final_times(rally_id)
     find_by_sql("SELECT rally_event_stage_times.participant_id,

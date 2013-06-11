@@ -1,0 +1,22 @@
+<% url = @retirement.new_record? ? rally_retirements_path : rally_retirement_path(:rally_id => @rally) %>
+<%= form_for @retirement, :url => url do |f| %>
+  <table class="table table-striped">
+    <tr>
+      <td width="200px"><%= f.label :stage_id, 'GR' %></td>
+      <td><%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface} | #{s.length.round(2)} km", s.id ] } %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :participant_id, 'Ekipažas' %></td>
+      <td><%= f.select :participant_id, @rally.participants.collect {|p| [ "#{p.name}", p.id ] } %></td>
+    </tr>
+    <tr>
+      <td width="200px"><%= f.label :reason, 'Priežastis' %></td>
+      <td><%= f.text_field :reason, :required => true %></td>
+    </tr>
+  </table>
+  <%= f.hidden_field :rally_id, :value => @rally.id %>
+
+  <div class="actions">
+    <%= f.submit 'Išsaugoti', :class => 'btn btn-primary btn-mini' %>
+  </div>
+<% end %>

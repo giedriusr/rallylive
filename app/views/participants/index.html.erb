@@ -1,4 +1,5 @@
 <h4><%= @rally.name %> dalyviai</h4>
+<%= render 'admin_nav' %>
 <br>
 <%= form_for(@participant, :url => rally_participants_path, :remote => true) do |f| %>
   <%= f.hidden_field :rally_id, :value => @rally.id %>
@@ -23,7 +24,7 @@
     <th width="20px">St. Nr.</th>
     <th>Ekipažas<br>Komanda</th>
     <th>Automobilis</th>
-    <th><%= link_to 'Įsk.', '#', :rel => 'tooltip', :title => 'Klasė / Įskaita' %></th>
+    <th>Įskaita</th>
     <th>Šalis</th>
     <th></th>
   </tr>
