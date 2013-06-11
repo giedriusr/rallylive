@@ -29,7 +29,7 @@ gem 'chosen-rails'
 # gem 'jquery-turbolinks'
 # gem 'turbolinks'
 gem 'jbuilder', '~> 1.0.1'
-# gem "actionpack-action_caching", github: "rails/actionpack-action_caching"
+gem "actionpack-action_caching", github: "rails/actionpack-action_caching"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

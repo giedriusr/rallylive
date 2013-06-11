@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/rails/actionpack-action_caching.git
+  revision: d70fc3b92b3fe1c8a0ce19596e31cdd4627acb92
+  specs:
+    actionpack-action_caching (1.0.0)
+      actionpack (>= 4.0.0.beta, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -283,6 +290,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching!
   airbrake
   best_in_place
   better_errors
