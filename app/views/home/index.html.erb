@@ -35,9 +35,9 @@
 <table class="table table-striped">
   <tr>
     <th>#</th>
-    <th>S</th>
+    <th>St. Nr.</th>
     <th>Ekipažas</th>
-    <th>Kl</th>
+    <th>Klasė</th>
     <th>Laikas</th>
   </tr>
   <% @stage_times.each_with_index do |stage_time, index| %>
@@ -61,5 +61,7 @@
 </table>
 <%= render 'layouts/print' %>
 <hr>
-<h6>Komentarai</h6>
-<div class="fb-comments" data-href="http://www.raceonline.lt" data-num-posts="10"></div>
+<% if Rails.env.production? %>
+  <h6>Komentarai</h6>
+  <div class="fb-comments" data-href="http://www.raceonline.lt" data-num-posts="10"></div>
+<% end %>

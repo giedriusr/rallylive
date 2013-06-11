@@ -20,5 +20,7 @@
 </table>
 <%= render 'layouts/print' %>
 <hr>
-<h6>Komentarai</h6>
-<div class="fb-comments" data-href="http://www.raceonline.lt/dalyviu_sarasas" data-num-posts="10"></div>
+<% if Rails.env.production? %>
+  <h6>Komentarai</h6>
+  <div class="fb-comments" data-href="http://www.raceonline.lt/dalyviu_sarasas" data-num-posts="10"></div>
+<% end %>
