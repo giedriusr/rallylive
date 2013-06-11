@@ -30,6 +30,10 @@
       <td><%= f.label :opening_at, 'Atidaro' %></td>
       <td><%= f.text_field :opening_at, :required => true %></td>
     </tr>
+    <tr>
+      <td><%= f.label :is_current, 'Vyksta dabar?' %></td>
+      <td><%= f.check_box :is_current %></td>
+    </tr>
   </table>
   <%= f.hidden_field :rally_id, :value => @rally.id %>
   <div class="actions">

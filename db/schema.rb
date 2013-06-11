@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130610123343) do
+ActiveRecord::Schema.define(version: 20130611122752) do
 
   create_table "rallies", force: true do |t|
     t.string   "name"
@@ -81,8 +81,10 @@ ActiveRecord::Schema.define(version: 20130610123343) do
     t.datetime "updated_at"
     t.string   "closing_at"
     t.string   "opening_at"
+    t.boolean  "is_current", default: false
   end
 
+  add_index "rally_stages", ["is_current"], name: "index_rally_stages_on_is_current", using: :btree
   add_index "rally_stages", ["rally_id"], name: "index_rally_stages_on_rally_id", using: :btree
 
   create_table "users", force: true do |t|

@@ -48,6 +48,7 @@ class StagesController < ApplicationController
     end
 
     def stage_params
-      params.require(:rally_stage).permit(:rally_id, :name, :length, :surface, :starts_at, :number, :closing_at, :opening_at)
+      params.require(:rally_stage).permit(:rally_id, :name, :length, :surface, :starts_at,
+      :number, :closing_at, :opening_at, :is_current)
     end
 end

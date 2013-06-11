@@ -11,6 +11,7 @@
     <th>Startas</th>
     <th>Uždaro</th>
     <th>Atidaro</th>
+    <th>Dbr?</th>
     <th></th>
   </tr>
   <% @stages.each do |stage| %>
@@ -22,6 +23,7 @@
       <td><%= stage.starts_at %></td>
       <td><%= stage.closing_at %></td>
       <td><%= stage.opening_at %></td>
+      <td><%= stage.is_current ? raw('<span class="label label-success">taip</span>') : '' %></td>
       <td>
         <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_stage_path(:rally_id => stage.rally_id, :id => stage.id), :class => 'btn btn-warning btn-mini' %>
         <%= link_to raw('<span class="icon-remove"></span>'), rally_stage_path(:rally_id => stage.rally_id, :id => stage.id), :class => 'btn btn-danger btn-mini', :method => :delete, data: { confirm: 'Ar tikrai?' } %>
