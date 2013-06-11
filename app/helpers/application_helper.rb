@@ -53,7 +53,7 @@ module ApplicationHelper
   end
 
   def classifications
-    ['SG-2', 'SG-1', '2WD', 'R4/2', 'L8/3', 'WRC/1', 'N4/2', 'L9', 'L8/3', 'A7/4', '5', 'L9/7', 'L7/6', 'SG/8', 'SG-3']
+    ['WRC/1', 'SG-1', 'SG-2', 'SG-3', 'SG/8', 'L7/6', 'L8/3', 'L9', 'L9/7', '2WD', 'A7/4', 'R4/2', 'N4/2', '5']
   end
 
   def full_team(participant)

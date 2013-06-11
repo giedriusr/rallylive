@@ -71,7 +71,7 @@ end
 namespace :cache do
   desc 'Fixing permissions of /public folder to "nogroup"'
   task :fix_permissions, :roles => :app do
-    run "cd #{release_path}; #{try_sudo} chgrp nogroup public/"
+    run "cd #{release_path}; #{try_sudo} chgrp -R www-data public/ ; #{try_sudo} chown -R www-data public/ ; #{try_sudo} chmod 777 -R public/uploads"
   end
 end
 
