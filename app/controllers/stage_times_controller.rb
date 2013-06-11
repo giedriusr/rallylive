@@ -30,7 +30,7 @@ class StageTimesController < ApplicationController
 
   def update
     if @stage_time.update_attributes(stage_time_params)
-      redirect_to rally_stages_path(@rally), :notice => 'Ok'
+      redirect_to rally_stage_times_path(@rally), :notice => 'Ok'
     else
       render :edit
     end
