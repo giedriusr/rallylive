@@ -39,7 +39,6 @@
     <th>Ekipažas</th>
     <th>Kl</th>
     <th>Laikas</th>
-    <th>Vid. greitis</th>
   </tr>
   <% @stage_times.each_with_index do |stage_time, index| %>
     <tr>
@@ -52,7 +51,6 @@
           <span class="label label-important"><%= penalty_time(stage_time.penalty_time) %></span>
         <% end %>
         </td>
-      <td><%= average_speed(stage_time.time, @rally.length) %> km/h</td>
     </tr>
   <% end %>
   <% if @stage_times.size == 0 %>
