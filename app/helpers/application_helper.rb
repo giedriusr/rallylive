@@ -53,7 +53,11 @@ module ApplicationHelper
   end
 
   def classifications
-    ['WRC/1', 'SG-1', 'SG-2', 'SG-3', 'SG/8', 'L7/6', 'L8/3', 'L9', 'L9/7', '2WD', 'A7/4', 'R4/2', 'N4/2', '5']
+    ['WRC/1', 'N4/2', 'R4/2', 'L8/3', 'A7/4', '5', 'L7/6', 'L9', 'L9/7', 'SG/8', 'SG-1', 'SG-2', 'SG-3', '2WD']
+  end
+
+  def time_types
+    { 'Po GR' => 0, 'GR' => 1 }
   end
 
   def full_team(participant)

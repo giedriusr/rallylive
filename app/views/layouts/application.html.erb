@@ -11,6 +11,10 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
+  <% if request.path == root_path && Rails.env.production? %>
+    <meta http-equiv="refresh" content="60; URL=<%= root_url(:stage_id => @stage_id, :classification => @classification, :anchor => 'rezultatai') %>">
+  <% end %>
+
   <!--[if lt IE 9]>
   <script src="/assets/js/html5shiv.js"></script>
   <![endif]-->

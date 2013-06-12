@@ -4,6 +4,9 @@ class HomeController < ApplicationController
 
   def index
     @stage_times = RallyEventStageTime.final_times(@rally.id)
+    @stage_id = params[:stage_id]
+    @classification = params[:class]
+    @time_type = params[:type]
   end
 
   def show_rally

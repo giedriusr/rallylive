@@ -24,7 +24,7 @@
     </tr>
     <tr>
       <td><%= f.label :classification, 'Įskaita / Klasė' %></td>
-      <td><%= f.text_field :classification, :required => true %></td>
+      <td><%= f.select :classification, options_for_select(classifications), { include_blank: 'Klasė' }, { class: 'chzn-select mazas' } %></td>
     </tr>
     <tr>
       <td><%= f.label :country_code, 'Šalis (pvz. LT)' %></td>

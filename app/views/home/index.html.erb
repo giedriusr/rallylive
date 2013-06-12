@@ -4,38 +4,30 @@
   Danga: <%= @rally.surface %>, <%= @rally.length.round(2) %> km<br>
   Prasideda: <%= @rally.starts_at %><br>
   Dalyvių skaičius: <%= @rally.participants.size %><br>
-  GR skaičius: <%= @rally.stages.size %><br><br>
-
-  <table>
-    <tr>
-      <th width="70px"></th>
-      <th width="100px">Asfaltas</th>
-      <th>Žvyras</th>
-    </tr>
-    <tr>
-      <td>LARČ</td>
-      <td>1.80km</td>
-      <td>119.10km</td>
-    </tr>
-    <tr>
-      <td>LRSČ</td>
-      <td>1.80km</td>
-      <td>62.70km</td>
-    </tr>
-  </table>
+  GR skaičius: <%= @rally.stages.size %>
 </div>
-<br>
+<a name="rezultatai">&nbsp;</a>
 <p align="center">
-  <% @rally.stages.each do |stage| %>
-    <%= link_to "#{stage.name}", root_path(:stage_id => stage), :class => "btn btn-mini #{stage.is_current ? 'btn-warning' : 'btn-primary'}" %>
+  <%= form_tag root_path(:anchor => 'rezultatai'), :method => :get do %>
+    <% @rally.stages.each do |stage| %>
+      <% if @stage_id.to_i == stage.id %>
+        <% css_class = 'btn-warning' %>
+      <% elsif stage.is_current %>
+        <% css_class = 'btn-success' %>
+      <% else %>
+        <% css_class = 'btn-primary' %>
+      <% end %>
+      <%= link_to "#{stage.name}", root_path(:stage_id => stage, :class => @classification, :type => @time_type, :anchor => 'rezultatai'), :class => "btn btn-mini #{css_class}" %>
+    <% end %>
+    <%= select_tag 'type', options_for_select(time_types, @time_type), { class: 'chzn-select mazas', :onchange => 'this.form.submit();' } %>
+    <%= select_tag 'class', options_for_select(classifications, @classification), { :prompt => 'Klasė', class: 'chzn-select mazas', :onchange => 'this.form.submit();' } %>
+    <%= hidden_field_tag 'stage_id', @stage_id %>
   <% end %>
-  <%#= link_to "Visi", root_path, :class => 'btn btn-mini btn-inverse' %>
-  <%= select_tag 'klase', options_for_select(classifications), { :prompt => 'Klasė', class: 'chzn-select mazas' } %>
 </p>
 <table class="table table-striped">
   <tr>
-    <th>#</th>
-    <th>St. Nr.</th>
+    <th width="20px">P</th>
+    <th width="20px">St.</th>
     <th>Ekipažas</th>
     <th>Klasė</th>
     <th>Laikas</th>
