@@ -58,7 +58,4 @@
 </table>
 <%= render 'layouts/print' %>
 <hr>
-<% if Rails.env.production? %>
-  <h6>Komentarai</h6>
-  <div class="fb-comments" data-href="http://www.raceonline.lt" data-num-posts="10"></div>
-<% end %>
+<%= render :partial => 'facebook_comments', :locals => { :url => root_url } %>

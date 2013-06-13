@@ -35,7 +35,4 @@
   <%= link_to(image_tag("/gr9.jpg"), '/gr9.jpg') %>
 </p>
 <%= render 'layouts/print' %>
-<% if Rails.env.production? %>
-  <h6>Komentarai</h6>
-  <div class="fb-comments" data-href="http://www.raceonline.lt/greicio_ruozai" data-num-posts="10"></div>
-<% end %>
+<%= render :partial => 'facebook_comments', :locals => { :url => special_stages_url } %>
