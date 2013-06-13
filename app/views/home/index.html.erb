@@ -7,9 +7,9 @@
   GR skaičius: <%= @rally.stages.size %>
 </div>
 <a name="rezultatai">&nbsp;</a>
-<p align="center">
+<div align="center">
   <%= form_tag root_path(:anchor => 'rezultatai'), :method => :get do %>
-    <% @rally.stages.each do |stage| %>
+    <% @rally.stages.passed_or_current(@current_active_stage_number).each do |stage| %>
       <% if @stage_id.to_i == stage.id %>
         <% css_class = 'btn-warning' %>
       <% elsif stage.is_current %>
@@ -17,32 +17,37 @@
       <% else %>
         <% css_class = 'btn-primary' %>
       <% end %>
-      <%= link_to "#{stage.name}", root_path(:stage_id => stage, :class => @classification, :type => @time_type, :anchor => 'rezultatai'), :class => "btn btn-mini #{css_class}" %>
+      <%= link_to "#{stage.name}", root_path(:stage_id => stage, :class => @classification, :type => @time_type, :number => stage.number, :anchor => 'rezultatai'), :class => "btn btn-mini #{css_class}" %>
     <% end %>
     <%= select_tag 'type', options_for_select(time_types, @time_type), { class: 'chzn-select mazas', :onchange => 'this.form.submit();' } %>
     <%= select_tag 'class', options_for_select(classifications, @classification), { :prompt => 'Klasė', class: 'chzn-select mazas', :onchange => 'this.form.submit();' } %>
     <%= hidden_field_tag 'stage_id', @stage_id %>
+    <%= hidden_field_tag 'number', @stage_number %>
   <% end %>
-</p>
+</div>
 <table class="table table-striped">
   <tr>
-    <th width="20px">P</th>
-    <th width="20px">St.</th>
-    <th>Ekipažas</th>
+    <th width="20px"></th>
+    <th>Ekipažas<br>Komanda</th>
     <th>Klasė</th>
     <th>Laikas</th>
   </tr>
+  <% leader = @stage_times.first %>
   <% @stage_times.each_with_index do |stage_time, index| %>
+    <% if index == 1 %>
+      <% next_elem = leader %>
+    <% elsif (index > 1) && index != @stage_times.size %>
+      <% next_elem = @stage_times[index - 1] %>
+    <% end %>
+    <% next_time = next_elem.present? ? next_elem.final_time : stage_time.final_time %>
     <tr>
-      <td><%= index + 1 %>.</td>
-      <td><%= stage_time.participant.start_number %></td>
+      <td><span class="label"><%= index + 1 %></span><br><span class="label label-important"><%= stage_time.participant.start_number %></span></td>
       <td><%= full_team(stage_time.participant) %></td>
       <td><%= stage_time.participant.classification %></td>
-      <td><%= format_time(stage_time.penalty_time.to_i + stage_time.time) %><br>
-        <% unless stage_time.penalty_time.nil? %>
-          <span class="label label-important"><%= penalty_time(stage_time.penalty_time) %></span>
-        <% end %>
-        </td>
+      <td><%= format_time(stage_time.final_time) %><br>
+        <i style="font-size: 12px"><%= "+" if index > 0 %><%= calculate_diff(next_time, stage_time.final_time) %></i><br>
+        <i style="font-size: 12px"><%= "+" if index > 0 %><%= calculate_diff(leader.final_time, stage_time.final_time) %></i>
+      </td>
     </tr>
   <% end %>
   <% if @stage_times.size == 0 %>

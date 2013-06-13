@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130611122752) do
+ActiveRecord::Schema.define(version: 20130612184733) do
 
   create_table "rallies", force: true do |t|
     t.string   "name"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20130611122752) do
     t.float    "time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "penalty_in_seconds"
+    t.integer  "penalty_in_seconds", default: 0
   end
 
   add_index "rally_event_stage_times", ["participant_id"], name: "index_rally_event_stage_times_on_participant_id", using: :btree

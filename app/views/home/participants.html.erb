@@ -2,7 +2,7 @@
 
 <table class="table table-striped">
   <tr>
-    <th width="20px">St. Nr.</th>
+    <th width="20px">St.</th>
     <th>Ekipažas<br>Komanda</th>
     <th>Automobilis</th>
     <th>Įsk</th>
@@ -10,7 +10,7 @@
   </tr>
   <% @participants.each do |participant| %>
     <tr>
-      <td><%= participant.start_number %>.</td>
+      <td><span class="label label-important"><%= participant.start_number %></span></td>
       <td><%= participant.driver_name %><br><%= participant.co_driver_name %><br><u><%= participant.team_name %></u></td>
       <td><%= participant.car_name %></td>
       <td><%= participant.classification %></td>

@@ -3,10 +3,14 @@ class HomeController < ApplicationController
   # caches_action :retirements, :participants, :special_stages, :calendar, :standings
 
   def index
-    @stage_times = RallyEventStageTime.final_times(@rally.id)
-    @stage_id = params[:stage_id]
-    @classification = params[:class]
-    @time_type = params[:type]
+    @stage_id = params[:stage_id].present? ? params[:stage_id] : nil
+    @classification = params[:class].present? ? params[:class] : nil
+    @time_type = params[:type].present? ? params[:type] : nil
+    if @time_type == '1'
+      @stage_times = RallyEventStageTime.stage_times(@rally.id, @stage_id, @classification)
+    else
+      @stage_times = RallyEventStageTime.final_times(@rally.id, @stage_number, @stage_id, @classification)
+    end
   end
 
   def show_rally
@@ -37,5 +41,8 @@ class HomeController < ApplicationController
   private
     def set_rally
       @rally = Rally.where(:is_current => true).first
+      @current_stage = RallyStage.where(:is_current => true, :rally_id => @rally.id).first
+      @current_active_stage_number = @current_stage.present? ? @current_stage.number : 11
+      @stage_number = params[:number].present? ? params[:number] : @current_active_stage_number
     end
 end

@@ -57,10 +57,14 @@ module ApplicationHelper
   end
 
   def time_types
-    { 'Po GR' => 0, 'GR' => 1 }
+    { 'Po GR' => 2, 'GR' => 1 }
   end
 
   def full_team(participant)
     raw("#{participant.driver_name}<br>#{participant.co_driver_name}<br><u>#{participant.team_name}</u>")
+  end
+
+  def calculate_diff(first_time, second_time)
+    format_time(second_time.to_f - first_time.to_f)
   end
 end

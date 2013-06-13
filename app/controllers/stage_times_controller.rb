@@ -15,6 +15,8 @@ class StageTimesController < ApplicationController
   def create
     @stage_time = RallyEventStageTime.new
     if @stage_time.update_attributes(stage_time_params)
+      @stage_time.stage_number = @stage_time.stage.number
+      @stage_time.save
     else
       render :new
     end
