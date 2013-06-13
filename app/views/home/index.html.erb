@@ -10,8 +10,8 @@
     GR skaičius: <%= @rally.stages.size %>
   </p>
 </div>
-<a name="rezultatai">&nbsp;</a>
 <div align="center">
+  <a name="rezultatai">&nbsp;</a>
   <%= form_tag root_path(:anchor => 'rezultatai'), :method => :get do %>
     <% @rally.stages.passed_or_current(@current_active_stage_number).each do |stage| %>
       <% if @stage_id.to_i == stage.id %>
