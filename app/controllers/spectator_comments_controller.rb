@@ -1,0 +1,3 @@
+class SpectatorCommentsController < ApplicationController
+
+end

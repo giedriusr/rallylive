@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130612184733) do
+ActiveRecord::Schema.define(version: 20130613122800) do
 
   create_table "rallies", force: true do |t|
     t.string   "name"
@@ -86,6 +86,20 @@ ActiveRecord::Schema.define(version: 20130612184733) do
 
   add_index "rally_stages", ["is_current"], name: "index_rally_stages_on_is_current", using: :btree
   add_index "rally_stages", ["rally_id"], name: "index_rally_stages_on_rally_id", using: :btree
+
+  create_table "spectator_comments", force: true do |t|
+    t.integer  "rally_id"
+    t.integer  "stage_id"
+    t.string   "name"
+    t.text     "comment"
+    t.string   "image"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spectator_comments", ["rally_id"], name: "index_spectator_comments_on_rally_id", using: :btree
+  add_index "spectator_comments", ["stage_id"], name: "index_spectator_comments_on_stage_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

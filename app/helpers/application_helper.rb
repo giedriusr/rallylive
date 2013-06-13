@@ -67,4 +67,9 @@ module ApplicationHelper
   def calculate_diff(first_time, second_time)
     format_time(second_time.to_f - first_time.to_f)
   end
+
+  def format_datetime(timestamp, time = true)
+    return timestamp.strftime("%Y-%m-%d") if time == false
+    timestamp.strftime("%Y-%m-%d %H:%M")
+  end
 end

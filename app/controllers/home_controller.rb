@@ -38,6 +38,21 @@ class HomeController < ApplicationController
     @retirements = RallyEventRetirement.where(:rally_id => @rally.id).includes(:participant, :stage)
   end
 
+  def spectator_comments
+    @comments = SpectatorComment.where(:rally_id => @rally.id)
+    @comment = SpectatorComment.new
+  end
+
+  def create_spectator_comment
+    @comment = SpectatorComment.new
+    if @comment.update_attributes(comment_params)
+      @comment.ip_address = request.remote_ip
+      @comment.rally_id = @rally.id
+      @comment.save
+      session[:spectator_name] = @comment.name
+    end
+  end
+
   private
     def set_rally
       @rally = Rally.where(:is_current => true).first
@@ -45,4 +60,14 @@ class HomeController < ApplicationController
       @current_active_stage_number = @current_stage.present? ? @current_stage.number : 11
       @stage_number = params[:number].present? ? params[:number] : @current_active_stage_number
     end
+
+    def comment_params
+      params.require(:spectator_comment).permit(:rally_id, :stage_id, :name, :comment)
+    end
+
+    def spectator_name
+      session[:spectator_name].present? ? session[:spectator_name] : ''
+    end
+
+    helper_method :spectator_name
 end

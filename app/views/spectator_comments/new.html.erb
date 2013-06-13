@@ -1,0 +1,6 @@
+<%= form_for :spectator_comment, :url => spectator_comments_path, :remote => true do |f| %>
+<%= f.text_area :comment, :rows => 3, :class => 'input-xxlarge', :id => 'spectator_comment_post' %>
+<%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface}", s.id ] } %>
+<%= f.text_field :name %>
+<%= f.submit 'Išsaugoti', :class => 'btn btn-primary' %>
+<% end %>

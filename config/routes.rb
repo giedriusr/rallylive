@@ -1,5 +1,6 @@
 Rallylive::Application.routes.draw do
 
+  get "spectator_comments/index"
   devise_for :users
   devise_scope :user do
     post '/sign_out', to: 'devise/sessions#destroy', as: 'sign_out'
@@ -20,8 +21,11 @@ Rallylive::Application.routes.draw do
   get '/lentele', to: 'home#standings', as: 'standings'
   get '/pasitraukimai', to: 'home#retirements', as: 'retirements'
   get '/orai', to: 'home#weather', as: 'weather'
+  get '/ziurovu_komentarai', to: 'home#spectator_comments', as: 'spectator_comments'
+  post '/ziurovu_komentarai/naujas', to: 'home#create_spectator_comment', as: 'create_spectator_comment'
 
   resources :rallies do
     resources :participants, :stages, :stage_times, :retirements
   end
+  resources :spectator_comments
 end

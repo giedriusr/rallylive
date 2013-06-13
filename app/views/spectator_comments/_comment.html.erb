@@ -1,0 +1,5 @@
+<tr>
+  <td width="40px"><%= comment.stage.present? ? comment.stage.name : '-' %></td>
+  <td><%= comment.comment %>
+    <p align="right" style="font-size: 12px"><u><%= comment.name %></u>, <i><%= format_datetime(comment.created_at) %></i></p></td>
+</tr>

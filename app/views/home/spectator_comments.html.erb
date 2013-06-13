@@ -1,0 +1,13 @@
+<%= form_for :spectator_comment, :url => create_spectator_comment_path, :remote => true do |f| %>
+  <p>
+    <%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface}", s.id ] }, { include_blank: 'Greičio ruožas' }, { class: 'chzn-select' } %>
+  </p>
+  <%= f.text_field :name, :value => spectator_name, :html => { :required => true, :placeholder => 'jūsų vardas..' } %>
+  <%= f.text_area :comment, :rows => 3, :class => 'input-xxlarge', :id => 'spectator_comment_post', :required => true, :placeholder => 'jūsų komentaras..' %><br>
+  <%= f.submit 'Išsaugoti', :class => 'btn btn-success' %>
+<% end %>
+
+<h4>Žiūrovų komentarai</h4>
+<table class="table table-condensed table-striped" id="comments">
+  <%= render :partial => '/spectator_comments/comment', :collection => @comments, :as => :comment %>
+</table>
