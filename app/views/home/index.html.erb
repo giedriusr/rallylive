@@ -1,10 +1,12 @@
 <div class="">
-  <p align="center"><%= image_tag @rally.logo.to_s, :width => '200px' %></p><br>
-  Ralis: <strong><%= @rally.name %></strong> (<%= link_to 'pilnas aprašymas', show_rally_path %>)<br>
-  Danga: <%= @rally.surface %>, <%= @rally.length.round(2) %> km<br>
-  Prasideda: <%= @rally.starts_at %><br>
-  Dalyvių skaičius: <%= @rally.participants.size %><br>
-  GR skaičius: <%= @rally.stages.size %>
+  <p align="center">
+    <%= image_tag @rally.logo.to_s, :width => '200px' %><br>
+    Ralis: <strong><%= @rally.name %></strong> (<%= link_to 'pilnas aprašymas', show_rally_path %>)<br>
+    Prasideda: <%= @rally.starts_at %><br>
+    Danga: <%= @rally.surface %>, <%= @rally.length.round(2) %> km<br>
+    Dalyvių skaičius: <%= @rally.participants.size %><br>
+    GR skaičius: <%= @rally.stages.size %>
+  </p>
 </div>
 <a name="rezultatai">&nbsp;</a>
 <div align="center">
@@ -56,6 +58,8 @@
     </tr>
   <% end %>
 </table>
+<span class="label label-success">&nbsp;</span> <i>- oficialus vykstantis greičio ruožas.</i>
+<span class="label label-warning">&nbsp;</span> <i>- jūsų pasirinktas greičio ruožas.</i>
 <%= render 'layouts/print' %>
 <hr>
 <%= render :partial => 'facebook_comments', :locals => { :url => root_url } %>
