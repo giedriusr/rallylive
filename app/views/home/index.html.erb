@@ -1,6 +1,8 @@
-<div class="">
+<div class="row-fluid">
+  <p class="fotke">
+    <%= image_tag @rally.logo.to_s, :width => '200px' %>
+  </p>
   <p align="center">
-    <%= image_tag @rally.logo.to_s, :width => '200px' %><br>
     Ralis: <strong><%= @rally.name %></strong> (<%= link_to 'pilnas aprašymas', show_rally_path %>)<br>
     Prasideda: <%= @rally.starts_at %><br>
     Danga: <%= @rally.surface %>, <%= @rally.length.round(2) %> km<br>
@@ -17,7 +19,7 @@
       <% elsif stage.is_current %>
         <% css_class = 'btn-success' %>
       <% else %>
-        <% css_class = 'btn-primary' %>
+        <% css_class = '' %>
       <% end %>
       <%= link_to "#{stage.name}", root_path(:stage_id => stage, :class => @classification, :type => @time_type, :number => stage.number, :anchor => 'rezultatai'), :class => "btn btn-mini #{css_class}" %>
     <% end %>
