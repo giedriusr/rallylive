@@ -7,8 +7,7 @@
     <th>Danga</th>
     <th>Ilgis</th>
     <th>Startas</th>
-    <th>Uždaro</th>
-    <th>Atidaro</th>
+    <th>Uždaro<br>Atidaro</th>
   </tr>
   <% @stages.each do |stage| %>
     <tr>
@@ -17,8 +16,7 @@
       <td><%= stage.surface %></td>
       <td><%= stage.length %>km</td>
       <td><%= stage.starts_at %></td>
-      <td><%= stage.closing_at %></td>
-      <td><%= stage.opening_at %></td>
+      <td><%= stage.closing_at %><br><%= stage.opening_at %></td>
     </tr>
   <% end %>
   <% if @stages.size == 0 %>
