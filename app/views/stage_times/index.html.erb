@@ -5,8 +5,8 @@
   <%= f.hidden_field :rally_id, :value => @rally.id %>
   <table class="table">
     <tr>
-      <td><%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface} | #{s.length.round(2)} km", s.id ] }, { include_blank: true }, { class: 'chzn-select' } %></td>
-      <td><%= f.select :participant_id, @rally.participants.collect {|p| [ "#{p.start_number}. #{p.name}", p.id ] }, { include_blank: true },
+      <td><%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface} | #{s.length.round(2)} km", s.id ] }, { include_blank: 'GR' }, { class: 'chzn-select' } %></td>
+      <td><%= f.select :participant_id, @rally.participants.collect {|p| [ "#{p.start_number}. #{p.name}", p.id ] }, { include_blank: 'Ekipažas' },
         { class: 'chzn-select' } %></td>
       <td><%= f.text_field :time, :placeholder => 'laikas..', :class => 'input-small', :required => true %></td>
       <td><%= f.text_field :penalty_in_seconds, :placeholder => 'bauda..', :class => 'input-small' %></td>
