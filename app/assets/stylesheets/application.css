@@ -19,3 +19,6 @@
 .fotke {
   text-align: center !important;
 }
+.nav-tabs>li>a, .nav-pills>li>a {
+  margin-right: 0px !important;
+}
