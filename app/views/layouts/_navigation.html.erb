@@ -1,12 +1,6 @@
 <ul class="nav nav-pills pull-right">
   <li <%= sidebar_link(request.path_info, root_path) %>><%= link_to 'Rezultatai', root_path %></li>
-  <li <%= sidebar_link(request.path_info, participants_path) %>>
-    <% if @rally.present? %>
-      <%= link_to "Dalyviai (#{@rally.participants.size})", participants_path %>
-    <% else %>
-      <%= link_to "Dalyviai", participants_path %>
-    <% end %>
-  </li>
+  <li <%= sidebar_link(request.path_info, participants_path) %>><%= link_to "Dalyviai", participants_path %></li>
   <li <%= sidebar_link(request.path_info, special_stages_path) %>><%= link_to 'GR', special_stages_path %></li>
   <li class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Daugiau <b class="caret"></b></a>
@@ -19,7 +13,8 @@
         <li><%= link_to "Pasitraukimai", retirements_path %></li>
       <% end %>
       <li><%= link_to 'Orai', weather_path %></li>
-      <li><%= link_to 'Žiūrovų komentarai', spectator_comments_path %></li>
+      <li><%= link_to "Žiūrovų komentarai (#{@rally.comments.size})", spectator_comments_path %></li>
+      <li><%= link_to 'Apie mus', about_us_path %></li>
     </ul>
   </li>
 </ul>

@@ -5,6 +5,7 @@ class Rally < ActiveRecord::Base
   has_many :participants, class_name: 'RallyParticipant', dependent: :destroy
   has_many :stage_times, class_name: 'RallyEventStageTime', dependent: :destroy
   has_many :retirements, class_name: 'RallyEventRetirement', dependent: :destroy
+  has_many :comments, class_name: 'SpectatorComment', dependent: :destroy
 
   def length
     total = 0.0
