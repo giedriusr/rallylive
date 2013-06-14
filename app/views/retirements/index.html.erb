@@ -20,7 +20,7 @@
       <td><%= retirement.participant.driver_name %>, <%= retirement.participant.co_driver_name %><br><u><%= retirement.participant.team_name %></u><br><%= retirement.participant.car_name %></td>
       <td><%= retirement.participant.classification %></td>
       <td><%= retirement.participant.country_code %></td>
-      <td><%= retirement.stage.name %></td>
+      <td><%= retirement.stage.present? ? retirement.stage.name : '-' %></td>
       <td><%= retirement.reason %></td>
       <td width="70px">
         <%= link_to raw('<span class="icon-edit"></span>'), edit_rally_retirement_path(:rally_id => retirement.rally_id, :id => retirement.id), :class => 'btn btn-warning btn-mini' %>

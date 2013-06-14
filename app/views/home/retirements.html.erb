@@ -2,14 +2,16 @@
 
 <table class="table table-condensed table-striped">
   <tr>
+    <th width="20px">St.</th>
     <th>Ekipažas</th>
     <th>GR</th>
     <th>Priežastis</th>
   </tr>
   <% @retirements.each do |retirement| %>
     <tr>
-      <td><%= full_team(retirement.participant) %></td>
-      <td><%= retirement.stage.name %></td>
+      <td><span class="label label-important"><%= retirement.participant.start_number %></span></td>
+      <td width="280px"><%= full_team(retirement.participant) %></td>
+      <td width="40px"><%= retirement.stage.present? ? retirement.stage.name : '-' %></td>
       <td><%= retirement.reason %></td>
     </tr>
   <% end %>

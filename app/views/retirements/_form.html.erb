@@ -3,11 +3,11 @@
   <table class="table table-striped">
     <tr>
       <td width="200px"><%= f.label :stage_id, 'GR' %></td>
-      <td><%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface} | #{s.length.round(2)} km", s.id ] } %></td>
+      <td width="300px"><%= f.select :stage_id, @rally.stages.collect {|s| [ "#{s.name} | #{s.surface} | #{s.length.round(2)} km", s.id ] }, { include_blank: 'Be GR' }, { class: 'chzn-select' } %></td>
     </tr>
     <tr>
       <td><%= f.label :participant_id, 'Ekipažas' %></td>
-      <td><%= f.select :participant_id, @rally.participants.collect {|p| [ "#{p.name}", p.id ] } %></td>
+      <td><%= f.select :participant_id, @rally.participants.collect {|p| [ "#{p.start_number}. #{p.name}", p.id ] }, { include_blank: 'Ekipažas' }, { class: 'chzn-select' } %></td>
     </tr>
     <tr>
       <td width="200px"><%= f.label :reason, 'Priežastis' %></td>
