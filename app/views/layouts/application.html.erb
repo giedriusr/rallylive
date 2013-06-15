@@ -12,7 +12,7 @@
   <%= csrf_meta_tags %>
 
   <% if request.path == root_path && Rails.env.production? %>
-    <meta http-equiv="refresh" content="60; URL=<%= root_url(:stage_id => @stage_id, :classification => @classification, :anchor => 'rezultatai') %>">
+    <meta http-equiv="refresh" content="60; URL=<%= root_url(:number => @stage_number, :stage_id => @stage_id, :classification => @classification, :type => @time_type, :anchor => 'rezultatai') %>">
   <% end %>
 
   <!--[if lt IE 9]>
