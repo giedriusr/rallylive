@@ -1,4 +1,5 @@
 <% if Rails.env.production? %>
+  <div id="fb-root"></div>
   <h6>Komentarai</h6>
   <div class="fb-comments" data-href="<%= url %>" data-num-posts="10"></div>
 <% end %>
