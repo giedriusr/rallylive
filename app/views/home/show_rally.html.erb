@@ -6,22 +6,6 @@ Ilgis: <%= @rally.length.round(2) %> km<br>
 Prasideda: <%= @rally.starts_at %><br>
 Dalyvių skaičius: <%= @rally.participants.size %><br>
 Greičio ruožų skaičius: <%= @rally.stages.size %><br><br>
-<table>
-  <tr>
-    <th width="70px"></th>
-    <th width="100px">Asfaltas</th>
-    <th>Žvyras</th>
-  </tr>
-  <tr>
-    <td>LARČ</td>
-    <td>1.80km</td>
-    <td>119.10km</td>
-  </tr>
-  <tr>
-    <td>LRSČ</td>
-    <td>1.80km</td>
-    <td>62.70km</td>
-  </tr>
-</table>
+
 <br>
 <%= simple_format(@rally.description, :align => 'justify') %>
